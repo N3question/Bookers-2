@@ -1,0 +1,9 @@
+<h1>Books</h1>
+<% @books.each do |book| %>
+<div>
+  <a href="/users/:id"><%= image_tag 'user_image.jpeg' %></a>
+  <p><%= link_to book.title, "/books/#{book.id}" %></p>
+  <p>Opinion：<%= book.body %></p>
+  <p><%= current_user.name %></p>
+</div>
+<% end %>

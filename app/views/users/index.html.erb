@@ -1,0 +1,15 @@
+<h1>Users</h1>
+<table>
+  <thead> 
+    <tr> <th>image</th> <th>name</th> <th></th> </tr> 
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= image_tag 'user_image.jpg' %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "Show" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
