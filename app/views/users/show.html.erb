@@ -1,7 +1,14 @@
 <% flash[:notice] %>
 <h1>User info</h1>
-    <div><%= image_tag 'user_image.jpeg' %></div>
-      <strong>name:</strong><%#= f.current_user.name %><br>
-      <strong>introduce:</strong><%#= f.current_user.introduce %>
-    </div>
-    <p><%= link_to "Edit Profile", edit_user_path %></p>
+  <% if @user.profile_image.attached? %>
+    <%= image_tag @user.profile_image, size: "100x100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "100x100" %>
+  <% end %><br>
+  
+  <th><strong>name</strong></th>
+  <th><strong><%= @user.name %></strong></th><br>
+  <th><strong>introduction</strong></th>
+  <th><strong><%= @user.introduction %></strong></th><br>
+  
+  <div><%= link_to "Edit Profile", edit_user_path %></div>

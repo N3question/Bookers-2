@@ -1,14 +1,17 @@
-<%= flash[:notice] %>
+<!--< %= flash[:notice] %>-->
 <h1>Book detail</h1>
-<div>
-  <a href="/users/:id"><%= image_tag 'user_image.jpeg' %></a>
+
+  <% if @user.profile_image.attached? do %>
+    <%= image_tag @user.profile_image, size: "100x100" %>
+  <% end %>
+  <p>current_user.name</p>
+  
   <p><%= @book.title %></p>
   <p><%= @book.body %></p>
   <div><%= link_to "Edit", edit_book_path %></div>
   <div>
-    <% if @book.user_id == current_user %>
+    <% if @book.user_id == current_user do %>
       <%= link_to "Destroy", destroy_book_path, method: :delete, "data-confirm" => "Are you sure?" %>
     <% end %>
   </div>
-  <p><%= current_user.name %></p>
-</div>
+  
