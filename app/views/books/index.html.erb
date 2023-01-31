@@ -1,9 +1,17 @@
 <h1>Books</h1>
-<% @books.each do |book| %>
-<div>
-  <a href="users#show"><%= image_tag 'user_image.jpeg' %></a>
-  <p><%= link_to book.title, "/books/#{book.id}" %></p>
-  <p>Opinion：<%= book.body %></p>
-  <p><%= current_user.name %></p>
-</div>
-<% end %>
+<table>
+  <thead> 
+    <tr> <th></th> <th>Title</th> <th>Opinion</th> </tr> 
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+    <tr>
+      <td>
+      <%= image_tag book.user.profile_image, size: "100x100" %>
+      </td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
