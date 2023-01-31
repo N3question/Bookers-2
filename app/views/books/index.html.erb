@@ -9,6 +9,9 @@
       <td>
         <%= link_to users_path do %>
           <%= image_tag book.user.profile_image, size: "100x100" %>
+        <% end %><br>
+        <%= link_to users_path do %>
+          <%= book.user.name %>
         <% end %>
       </td>
       <td>
