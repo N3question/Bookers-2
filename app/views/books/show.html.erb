@@ -1,12 +1,8 @@
 <!--< %= flash[:notice] %>-->
 <h1>Book detail</h1>
 
-<% if @user.profile_image.attached? %>
-  <%= image_tag @user.profile_image, size: "100x100" %>
-<% else %>
-  <%= image_tag 'no_image', size: "100x100" %>
-<% end %>
-<a href="/users/#{current_user.id}"><%= user.name %></a>
+<%= image_tag @book.user.profile_image, size: "100x100" %>
+<a href=""><%= @book.user.name %></a>
   
 <p><%= @book.title %></p>
 <p><%= @book.body %></p>
