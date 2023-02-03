@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class  BooksController  < ApplicationController
   
   def new
     @book = Book.new
@@ -19,9 +19,13 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
   
+  # def user
+  #   @user = User.find(params[:id])
+  #   render template: 'users/show'
+  # end
+  
   def index
     @books = Book.all
-    # @user = User.find(@user.id)
   end
   
   def edit

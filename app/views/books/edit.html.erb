@@ -1,7 +1,15 @@
 <h2>Editing Book</h2>
+  <% if @book.errors.any? %>
+    <%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<%= form_with model: @book, method: :patch do |f| %>
-<% flash[:alert] %>
+  <%= form_with model: @book, method: :patch do |f| %>
+  <!--< % flash[:alert] %>-->
   <p>Title</p>
   <%= f.text_field :title %>
   
