@@ -1,14 +1,23 @@
-<h2>User info</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3" style="background-color: orange;">
+      <h2>User info</h2>
   
-  <% if @user.profile_image.attached? %>
-    <%= image_tag @user.profile_image, size: "100x100" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "100x100" %>
-  <% end %><br>
+        <% if @user.profile_image.attached? %>
+          <%= image_tag @user.profile_image, size: "100x100" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "100x100" %>
+        <% end %><br>
+        <tr>
+          <th>name</th>
+          <th><%= @user.name %></th>
+        </tr><br>
+        <tr>
+          <th>introduction</th>
+          <th><%= @user.introduction %></th>
+        </tr><br>
   
-  <th><strong>name</strong></th>
-  <th><strong><%= @user.name %></strong></th><br>
-  <th><strong>introduction</strong></th>
-  <th><strong><%= @user.introduction %></strong></th><br>
-  
-  <div><%= link_to "Edit Profile", edit_user_path %></div>
+        <%= link_to "Edit Profile", edit_user_path, class:"btn btn-outline-secondary" %>
+    </div>   
+  </div>
+</div>

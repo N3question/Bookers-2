@@ -1,12 +1,12 @@
 <h2>User info</h2>
-  <% if @user.errors.any? %>
-    <%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <!--<#% if @user.errors.any? %>-->
+  <!--  <#%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:-->
+  <!--  <ul>-->
+  <!--    <#% @user.errors.full_messages.each do |message| %>-->
+  <!--      <li><#%= message %></li>-->
+  <!--    <#% end %>-->
+  <!--  </ul>-->
+  <!--<#% end %>-->
 
   <%= form_with model: @user, method: :patch do |f| %>
     <label for="inputName">Name</label><br>
@@ -18,5 +18,5 @@
     <label for="inputName">Introduction</label><br>
     <%= f.text_area :introduction, autofocus: true %><br>
   
-    <%= f.submit "Update User" %>
+    <%= f.submit "Update User", class:"btn btn-success" %>
 <% end %>
