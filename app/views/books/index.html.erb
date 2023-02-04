@@ -7,10 +7,10 @@
     <% @books.each do |book| %>
     <tr>
       <td>
-        <%= link_to users_path do %>
+        <%= link_to user_path(book.user_id) do %>
           <%= image_tag book.user.profile_image, size: "100x100" %>
         <% end %><br>
-        <%= link_to users_path do %>
+        <%= link_to user_path(book.user_id) do %>
           <%= book.user.name %>
         <% end %>
       </td>
