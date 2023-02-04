@@ -28,25 +28,10 @@ input {
   color: #fff;
 }
 
-h2{
-  margin: 0 0 8px;
-}
-
-th{
+.table th,.table td{
   padding: 12px;
 }
 
-td{
-  padding: 12px;
+.form-group{
+  margin: 0 0 16px;
 }
-
-/*footer{*/
-/*  height: 40px;*/
-/*}*/
-
-/*.row{*/
-/*  display: flex;*/
-/*  flex-wrap: wrap;*/
-/*  margin-right: -15px;*/
-/*  margin-left: -15px;*/
-/*}*/
