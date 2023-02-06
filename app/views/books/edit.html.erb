@@ -1,26 +1,36 @@
-<h2>Editing Book</h2>
-  <% if @book.errors.any? %>
-    <%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<p class="notice"></p>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+        <% if @book.errors.any? %>
+          <%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:
+            <ul>
+              <% @book.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        <% end %>
 
-  <%= form_with model: @book, method: :patch do |f| %>
-  <!--< % flash[:alert] %>-->
-  <p>Title</p>
-  <%= f.text_field :title %>
-  
-  <p>Opinion</p>
-  <%= f.text_area :body %><br>
-  
-  <%= f.submit 'Update Book', class:"btn btn-success" %>
-  
-  <p>
-    <%= link_to "Show", book_path(@book.id) %> | 
-    <%= link_to "Back", books_path %>
-  </p>
-  
-<% end %>
+        <%= form_with model: @book, method: :patch do |f| %>
+          <div class="form-group">
+            <label>Title</label><br>
+            <%= f.text_field :title, class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <label>Opinion</label><br>
+            <%= f.text_area :body, class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit 'Update Book', class:"btn btn-success" %>
+          </div>
+          <p>
+            <%= link_to "Show", book_path(@book.id) %> | 
+            <%= link_to "Back", books_path %>
+          </p>
+        <% end %>
+    </div>
+    
+  </div>
+</div>

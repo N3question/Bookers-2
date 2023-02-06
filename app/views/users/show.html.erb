@@ -61,21 +61,21 @@
             <tr> <th></th> <th>Title</th> <th>Opinion</th> <th></th></tr> 
           </thead>
           <tbody>
-          <!--<#% @books.each do |book| %>-->
-          <!--  <tr>-->
-          <!--    <td>-->
-          <!--      <#%= image_tag book.current_user.profile_image, size: "80x80" %>-->
-          <!--    </td>-->
-          <!--    <td>-->
-          <!--      <#%= link_to book_path(book.user_id) do%>-->
-          <!--        <#%= book.user_id.title %>-->
-          <!--      <#% end %>-->
-          <!--    </td>-->
-          <!--    <td>-->
-          <!--      <#%= book.user_id.body %>-->
-          <!--    </td>-->
-          <!--  </tr>-->
-          <!--<#% end %>-->
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= image_tag @user.profile_image, size: "80x80" %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do%>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              <td>
+                <%= book.body %>
+              </td>
+            </tr>
+          <% end %>
           </tbody>
         </table>
     </div>

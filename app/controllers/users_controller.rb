@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   
   def show
     @book = Book.new
-    @user = User.find(params[:id])
-    @books = Book.all
+    @user = User.find(params[:id]) #ユーザの番号の情報が入る
+    @books = Book.where(user_id: @user.id) #whereメゾットで欲しい情報を取得。@userで定義した内容を代入する。
   end
   
   def index
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
   
   def update
