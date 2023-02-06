@@ -1,11 +1,20 @@
 <p class="notice"></p>
-<div class="container">
+  <% if @book.errors.any? %>
+    <%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+<div class="container px-5 px-sm-0">
   <div class="row">
     
     <div class="col-md-3">
       <h2>User info</h2>
-        <% if current_user.profile_image.attached? %>
-          <%= image_tag current_user.profile_image, size: "100x100" %>
+        <% if @book.user.profile_image.attached? %>
+          <%= image_tag @book.user.profile_image, size: "100x100" %>
         <% else %>
           <%= image_tag 'no_image', size: "100x100" %>
         <% end %>
@@ -14,17 +23,17 @@
           <tbody>
             <tr>
               <th>name</th>
-              <th><%= current_user.name %></th>
+              <th><%= @book.user.name %></th>
             </tr><br>
             <tr>
               <th>introduction</th>
-              <th><%= current_user.introduction %></th>
+              <th><%= @book.user.introduction %></th>
             </tr>
           </tbody>
         </table><br>
         
         <div class="row">
-          <%= link_to edit_user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
+          <%= link_to edit_user_path(@book.user_id), class:"btn btn-outline-secondary btn-block" do %>
             <i class="fa-solid fa-user-gear"></i>
           <% end %>
         </div>
@@ -44,6 +53,8 @@
         
         <% end %>
     </div>
+    
+    <!--ここまで-->
     
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
